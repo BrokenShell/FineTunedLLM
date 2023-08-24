@@ -17,6 +17,7 @@ Embeddings with retrieval is best suited for cases when you need to have a large
 - For a training file with 100,000 tokens trained over 3 epochs, the expected cost would be ~$2.40.
 
 
+### Transform a List[Dict] to JSON-L File
 ```python
 import json
 
@@ -62,7 +63,7 @@ with open("marv.jsonl", "w") as jsonl_file:
 
 ```
 
-
+### Create an OpenAI Training File from JSON-L
 ```python
 import os
 import openai
@@ -74,6 +75,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 openai.File.create(file=open("marv.jsonl", "rb"), purpose='fine-tune')
 ```
 
+### Fine Tune GPT-3.5-turbo
 ```python
 import os
 import openai
@@ -85,6 +87,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 openai.FineTuningJob.create(training_file="file-abc123", model="gpt-3.5-turbo")
 ```
 
+### Use Custom GPT Model
 ```python
 import os
 import openai
