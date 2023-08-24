@@ -4,20 +4,28 @@ Embeddings with retrieval is best suited for cases when you need to have a large
 
 
 ### Training Example Count
-- Minimum: 10
-- Nominal: 50-100
-- Expert: 500-1000
-- Master: 1000+
+
+The training example count specifies the number of examples needed to effectively train a machine learning model. It can be categorized into four levels:
+
+- Minimum: 10 examples are the bare minimum, suitable for very basic tasks.
+- Nominal: 50-100 examples represent a standard requirement for more nuanced tasks.
+- Expert: 500-1000 examples are required for complex models with deep learning and specialized outcomes.
+- Master: 1000+ examples are needed for highly sophisticated models with intricate tasks. The more examples, the better the model can understand the nuances and intricacies of the data.
 
 ### Cost Formula
-- c = base cost per 1k tokens 
-- n = number of tokens in the input file 
-- e = number of epochs trained
-- Estimate => c * n * e
-- For a training file with 100,000 tokens trained over 3 epochs, the expected cost would be ~$2.40.
 
+The cost formula calculates the total cost incurred during the training process. It consists of the following variables:
 
+- c = base cost per 1k tokens, representing the fixed cost for every 1000 tokens.
+- n = number of tokens in the input file, indicating the total size of the data.
+- e = number of epochs trained, referring to the complete passes through the entire dataset.
+
+- The estimated cost is computed as c * n * e. For instance, a training file with 100,000 tokens trained over 3 epochs at a base cost of $0.008 would have an expected cost of approximately $2.40.
+- 
 ### Transform a List[Dict] to JSON-L File
+
+This section includes a Python code snippet that demonstrates how to convert a list of dictionaries into a JSON Lines (JSON-L) file. The code writes each dictionary as a separate line in the JSON-L file. The provided example involves a conversation with a chatbot named Marv, characterized by its factual yet sarcastic nature.
+
 ```python
 import json
 
@@ -64,6 +72,9 @@ with open("marv.jsonl", "w") as jsonl_file:
 ```
 
 ### Create an OpenAI Training File from JSON-L
+
+This part of the code establishes how to create an OpenAI training file using the JSON-L file created in the previous step. It imports necessary modules and uses OpenAI's API to create a file with a specific purpose of 'fine-tune'. It demonstrates how to handle API keys securely with the dotenv module.
+
 ```python
 import os
 import openai
@@ -76,6 +87,9 @@ openai.File.create(file=open("marv.jsonl", "rb"), purpose='fine-tune')
 ```
 
 ### Fine Tune GPT-3.5-turbo
+
+Here, the Python code snippet is used to initiate a fine-tuning job on the GPT-3.5-turbo model with OpenAI's API. It specifies the training file and model to be used for fine-tuning. This step is crucial for tailoring the model to specific requirements and improving its performance on specialized tasks.
+
 ```python
 import os
 import openai
@@ -88,6 +102,9 @@ openai.FineTuningJob.create(training_file="file-abc123", model="gpt-3.5-turbo")
 ```
 
 ### Use Custom GPT Model
+
+This code section illustrates how to use a custom GPT model that has been fine-tuned previously. It involves creating a chat completion request using the fine-tuned model, exemplified with a query to Marv, the sarcastic chatbot. The code also prints the response from the model. This snippet highlights the ability to customize and employ a model for specific tasks, leveraging the previous steps of transforming data, creating training files, and fine-tuning the model.
+
 ```python
 import os
 import openai
