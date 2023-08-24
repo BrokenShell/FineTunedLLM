@@ -11,7 +11,7 @@ For the purpose of brevity and simplicity, this project will showcase fine-tunin
 
 ### Training Example Count
 
-The training example count specifies the number of examples needed to effectively train a machine learning model. It can be categorized into four levels:
+The training example count specifies the number of examples needed to effectively train an LLM. It can be categorized into four levels:
 
 - Minimum: 10 examples are the bare minimum, suitable for very basic tasks.
 - Nominal: 50-100 examples represent a standard requirement for more nuanced tasks.
