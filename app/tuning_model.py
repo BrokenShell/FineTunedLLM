@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# result = openai.FineTuningJob.create(training_file="file-lyUgIB3OVWvMEZbjMK72NCs8", model="gpt-3.5-turbo")
-# print(result)
+result = openai.FineTuningJob.create(training_file="file-lyUgIB3OVWvMEZbjMK72NCs8", model="gpt-3.5-turbo")
+print(result)
 
 model = "ft:gpt-3.5-turbo-0613:personal::7r5hcQls"
 
@@ -33,5 +33,5 @@ model = "ft:gpt-3.5-turbo-0613:personal::7r5hcQls"
 result = openai.FineTuningJob.list_events(id="ftjob-tFBBMjnMYEY7SSWvXbw0MyqH", limit=50)["data"]
 print("\n".join(m["message"] for m in reversed(result)))
 
-# result = openai.FineTuningJob.retrieve("ftjob-tFBBMjnMYEY7SSWvXbw0MyqH")
-# print(result)
+result = openai.FineTuningJob.retrieve("ftjob-tFBBMjnMYEY7SSWvXbw0MyqH")
+print(result)
