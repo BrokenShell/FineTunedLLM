@@ -1,6 +1,12 @@
-### NOTES
+# Fine-Tuning GPT-3.5-turbo
 
-Embeddings with retrieval is best suited for cases when you need to have a large database of documents with relevant context and information. Retrieval strategies are not an alternative to fine-tuning and can in fact be complementary to it.
+This project offers a detailed guide to working with GPT-3.5-turbo using OpenAI, focusing on the fine-tuning process for specialized tasks. The guide is structured to lead you through various stages of preparing, training, and implementing a fine-tuned model. Beginning with an understanding of training example counts and the cost formula, it provides insights into how to manage and predict training expenses. Subsequent sections delve into transforming data into JSON-L files, creating OpenAI training files, fine-tuning the GPT-3.5-turbo model, and using a custom GPT model for specific applications. The project also includes illustrative examples, such as the creation of a sarcastic chatbot named Marv. Designed to cater to both beginners and experts in the field of Natural Language Processing (NLP), this guide simplifies complex concepts and provides practical code snippets to assist in building specialized models.
+
+### Fine Tuning vs Embeddings
+
+Embeddings with retrieval are an advanced technique in the domain of information retrieval and Natural Language Processing (NLP). They are particularly beneficial for scenarios that require access to large collections of documents, each carrying its own context and information. Unlike a mere keyword search, embeddings with retrieval can capture semantic meanings, thereby providing more accurate and relevant results. Retrieval strategies can be used in conjunction with fine-tuning methods to enhance the effectiveness of a model. Rather than being mutually exclusive, these two approaches can be combined to utilize both the efficiency of retrieval strategies and the specificity of fine-tuning. This synergy offers a powerful way to manage large-scale information retrieval tasks. 
+
+For the purpose of brevity and simplicity, this project will showcase fine-tuning without the complexity of embeddings.
 
 
 ### Training Example Count
